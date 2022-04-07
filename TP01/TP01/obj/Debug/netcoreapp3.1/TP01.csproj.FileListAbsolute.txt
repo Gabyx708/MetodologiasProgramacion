@@ -1,0 +1,14 @@
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\obj\Debug\netcoreapp3.1\TP01.csproj.AssemblyReference.cache
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\obj\Debug\netcoreapp3.1\TP01.GeneratedMSBuildEditorConfig.editorconfig
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\obj\Debug\netcoreapp3.1\TP01.AssemblyInfoInputs.cache
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\obj\Debug\netcoreapp3.1\TP01.AssemblyInfo.cs
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\obj\Debug\netcoreapp3.1\TP01.csproj.CoreCompileInputs.cache
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\bin\Debug\netcoreapp3.1\TP01.exe
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\bin\Debug\netcoreapp3.1\TP01.deps.json
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\bin\Debug\netcoreapp3.1\TP01.runtimeconfig.json
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\bin\Debug\netcoreapp3.1\TP01.runtimeconfig.dev.json
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\bin\Debug\netcoreapp3.1\TP01.dll
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\bin\Debug\netcoreapp3.1\TP01.pdb
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\obj\Debug\netcoreapp3.1\TP01.dll
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\obj\Debug\netcoreapp3.1\TP01.pdb
+B:\1 cuatrimestre 2022\metodologias de la programacion\TP01\TP01\obj\Debug\netcoreapp3.1\TP01.genruntimeconfig.cache
