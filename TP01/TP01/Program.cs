@@ -9,12 +9,12 @@ namespace TP01
         {
             Console.WriteLine("INTERFACEEEEES :D \n");
 
-            /*Comparable c1, c2;
+            Comparable c1, c2;
 
             c1 = new Numero(10);
             c2 = new Numero(10);
 
-            Console.WriteLine(c1.sosIgual(c2));*/
+            Console.WriteLine("el elemento c1 y c2 son iguales?: " + c1.sosIgual(c2));
             
 
             Pila test = new Pila();
@@ -36,38 +36,42 @@ namespace TP01
             //ejercicio 6
             static void informar(Coleccionable miCole)
             {
-                Console.WriteLine(miCole.cuantos());
-                Console.WriteLine(miCole.minimo());
-                Console.WriteLine(miCole.maximo());
+                Console.WriteLine("cant. elementos: "+miCole.cuantos());
+                Console.WriteLine("elemento min: "+miCole.minimo());
+                Console.WriteLine("elemento max: "+miCole.maximo());
 
+                Console.WriteLine("buscar dato en esta coleccion: ");
                 int ing = (int.Parse(Console.ReadLine()));
                 Comparable valor = new Numero(ing);
 
                 if (miCole.contiene(valor))
                 {
-                    Console.WriteLine("si esta");
+                    Console.WriteLine("si esta \n");
                 }
                 else
                 {
-                    Console.WriteLine("No esta");
+                    Console.WriteLine("No esta \n");
                 }
             }
 
             //EJERCICIO 7
             llenar(test);
             llenar(test2);
-            /*informar(test);*/
-            Console.WriteLine("LA PILA ESTA ABAJO: ---------------------->");
-           /* informar(test2);*/
+            Console.WriteLine("datos de la cola: ");
+            informar(test);
+
+            Console.WriteLine("dato de la pila: ");
+            informar(test2);
 
             ColeccionMultiple Multiple = new ColeccionMultiple(test,test2);
 
+            Console.WriteLine("ingresa un numero para ver si esta en la coleccion multiple:");
             int ing = (int.Parse(Console.ReadLine()));
             Comparable valor = new Numero(ing);
             Console.WriteLine(Multiple.contiene(valor));
 
             //EJERCICIO 9
-            /*informar(Multiple);*/
+            informar(Multiple);
 
             //EJERCICIO 12
             static void llenarPersonas(Coleccionable laColec)
@@ -96,7 +100,7 @@ namespace TP01
             llenarPersonas(Pila);
             llenarPersonas(Cola);
 
-            /*informar(Multiple);*/
+            informar(Multiple);
 
             //EJERCICIO 16
 
@@ -133,6 +137,15 @@ namespace TP01
             llenaAlumnos(Pila);
             llenaAlumnos(Cola);
             informar(Multiple);
+
+
+            //EJERCICIO 18 ALUMNO
+            Alumno A1 = new Alumno(45,"Mario",55,7);
+            Alumno A2 = new Alumno(55, "Julia", 55, 10); 
+
+            Console.WriteLine("promedio es mayor: "+A1.sosMayor(A2)); //false
+            Console.WriteLine("promedio es menor: " + A1.sosMenor(A2)); //true
+            Console.WriteLine("promedio es igual: " + A1.sosIgual(A2)); //false
 
         } //fin del main
            
@@ -439,7 +452,7 @@ namespace TP01
 
             public bool sosIgual(Comparable c)
             {
-                return this.dni == ((Persona)c).getDNI();
+                return this.dni == ((Numero)c).getValor();
             }
             public bool sosMenor(Comparable c)
             {
@@ -474,6 +487,22 @@ namespace TP01
             {
                 return promedio;
             }
+
+            //ejercicio 18
+            public bool sosIgual(Comparable c)
+            {
+                return this.promedio == ((Alumno)c).promedio;
+            }
+            public bool sosMenor(Comparable c)
+            {
+                return this.promedio < ((Alumno)c).promedio;
+            }
+            public bool sosMayor(Comparable c)
+            {
+                return this.promedio > ((Alumno)c).promedio;
+            }
+
+
         }
     }
 }
