@@ -26,6 +26,7 @@ namespace TP01
             return legajo;
         }
 
+   
         public int getPromedio()
         {
             return promedio;

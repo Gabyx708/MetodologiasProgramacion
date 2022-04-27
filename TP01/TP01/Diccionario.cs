@@ -4,13 +4,18 @@ using System.Text;
 
 namespace TP01
 {
-    class Diccionario
+    class Diccionario : Coleccionable , Iterable
     {
         private Conjunto almacen;
 
         public Diccionario()
         {
             almacen = new Conjunto();
+        }
+
+        public Iterador crearIterador()
+        {
+            return new IteradorDeLista(almacen.getElemetos());
         }
 
         public void agregar(Comparable clave,Comparable valor)
@@ -32,14 +37,79 @@ namespace TP01
           
         }
 
+        public void agregar(Comparable n)
+        {
+            //sobrecarga del metodo para satisfacer a la interfaz
+        }
+
         public claveValor valorDe(Comparable key)
         {
+            foreach(claveValor x in almacen.getElemetos())
+            {
+                if (x.getClave().sosIgual(key))
+                {
+                    return x;
+                }
+            }
             return null;
         }
 
         public void revisar()
         {
             almacen.muestrame();
+        }
+
+        public int cuantos()
+        {
+            return this.almacen.cuantos();
+        }
+
+        public Comparable minimo()
+        {
+            Comparable masChico = almacen.getElemetos()[0];
+
+            for (int i = 1; i < this.cuantos(); i++)
+            {
+                if (almacen.getElemetos()[i].sosMenor(masChico))
+                {
+                    masChico = almacen.getElemetos()[i];
+                }
+            }
+
+            return masChico;
+        }
+
+        public Comparable maximo()
+        {
+            Comparable masGrande = almacen.getElemetos()[0];
+
+            for (int i = 1; i < this.cuantos(); i++)
+            {
+                if (almacen.getElemetos()[i].sosMayor(masGrande))
+                {
+                    masGrande = almacen.getElemetos()[i];
+                }
+            }
+
+            return masGrande;
+        }
+
+        public bool contiene(Comparable c)
+        {
+            for (int i = 0; i < this.cuantos(); i++)
+            {
+                if (almacen.getElemetos()[i].sosIgual(c))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public Comparable elemento(int i)
+        {
+            return almacen.getElemetos()[i];
         }
     }
 

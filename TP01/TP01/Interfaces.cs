@@ -32,6 +32,13 @@ namespace TP01
         bool sosMayor(Alumno a1, Alumno a2);
     }
 
+    interface EstrategiaDeComparacionVend
+    {
+        bool sosIgual(Vendedor a1, Vendedor a2);
+        bool sosMenor(Vendedor a1, Vendedor a2);
+        bool sosMayor(Vendedor a1, Vendedor a2);
+    }
+
     //ejercicio 2.6
     interface Iterador
     {
@@ -53,5 +60,16 @@ namespace TP01
     {
         Comparable crearAleatorio();
         Comparable crearPorTeclado();
+    }
+
+    interface IObservado
+    {
+        void agregarObservador(IObservador o);
+        void quitarObservador(IObservador o);
+        void notificar();
+    }
+    interface IObservador
+    {
+        void actualizar(IObservado o);
     }
 }

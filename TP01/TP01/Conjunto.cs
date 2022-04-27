@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TP01
 {
-    class Conjunto
+    class Conjunto : Coleccionable , Iterable
     {
         private List<Comparable> elementos;
 
@@ -12,6 +12,17 @@ namespace TP01
         {
             elementos = new List<Comparable>();
         }
+
+        public Iterador crearIterador()
+        {
+            return new IteradorDeConjunto(this);
+        }
+
+        public Comparable elemento(int i)
+        {
+            return elementos[i];
+        }
+
 
         public List<Comparable> getElemetos()
         {
@@ -43,5 +54,55 @@ namespace TP01
             foreach (var ele in elementos)
                 Console.WriteLine(ele.ToString());
         }
+
+
+        public int cuantos()
+        {
+            return this.elementos.Count;
+        }
+
+        public Comparable minimo()
+        {
+            Comparable masChico = elementos[0];
+
+            for (int i = 1; i < this.cuantos(); i++)
+            {
+                if (elementos[i].sosMenor(masChico))
+                {
+                    masChico = elementos[i];
+                }
+            }
+
+            return masChico;
+        }
+
+        public Comparable maximo()
+        {
+            Comparable masGrande = elementos[0];
+
+            for (int i = 1; i < this.cuantos(); i++)
+            {
+                if (elementos[i].sosMayor(masGrande))
+                {
+                    masGrande = elementos[i];
+                }
+            }
+
+            return masGrande;
+        }
+
+        public bool contiene(Comparable c)
+        {
+            for (int i = 0; i < this.cuantos(); i++)
+            {
+                if (elementos[i].sosIgual(c))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
     }
 }

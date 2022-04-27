@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TP01
 {
-    class Pila : Coleccionable 
+    class Pila : Coleccionable , Iterable
     {
         private List<Comparable> elementos;
 
@@ -17,6 +17,11 @@ namespace TP01
         public void push(Comparable c)
         {
             elementos.Add(c);
+        }
+
+        public Iterador crearIterador()
+        {
+            return new IteradorDePila(this);
         }
 
         public Comparable pop()
@@ -47,6 +52,11 @@ namespace TP01
             }
 
             return masChico;
+        }
+
+        public Comparable elemento(int i)
+        {
+            return elementos[i];
         }
 
         public Comparable maximo()

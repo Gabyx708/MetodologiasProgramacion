@@ -16,6 +16,11 @@ namespace TP01
             miCola = C;
         }
 
+        public Comparable elemento(int i)
+        {
+            return null;
+        }
+
         public int cuantos()
         {
             int total = miPila.cuantos() + miCola.cuantos();

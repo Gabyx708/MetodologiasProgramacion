@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TP01
 {
-    class Cola : Coleccionable
+    class Cola : Coleccionable , Iterable
     {
         private List<Comparable> elementos;
 
@@ -16,6 +16,16 @@ namespace TP01
         public void agregar(Comparable c)
         {
             elementos.Add(c);
+        }
+
+        public Iterador crearIterador()
+        {
+            return new IteradorDeCola(this);
+        }
+
+        public Comparable elemento(int i)
+        {
+            return elementos[i];
         }
 
         public int cuantos()

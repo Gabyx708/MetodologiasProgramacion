@@ -16,7 +16,8 @@ namespace TP01
             {
                 case 0: fabrica = new FabricaDeNumeros(); break;
                 case 1: fabrica = new FabricaDeAlumnos(); break;
-  
+                case 2: fabrica = new FabricaDeVendedores(); break;
+
             }
 
             return  fabrica.crearAleatorio();
@@ -30,6 +31,7 @@ namespace TP01
             {
                 case 0: fabrica = new FabricaDeNumeros(); break;
                 case 1: fabrica = new FabricaDeAlumnos(); break;
+                case 2: fabrica = new FabricaDeVendedores(); break;
 
             }
 
@@ -95,6 +97,35 @@ namespace TP01
 
             Alumno nuev = new Alumno(D,n,L,p);
             return nuev;
+        }
+    }
+
+    class FabricaDeVendedores : FabricaDeComparables
+    {
+        public override Comparable crearAleatorio()
+        {
+            GeneradorDeDatosAleatorios x = new GeneradorDeDatosAleatorios();
+
+            int dni = x.numeroAleatorio(100);
+            int suel = x.numeroAleatorio(5000);
+            int bonu = x.numeroAleatorio(5);
+            string nom = x.stringAleaotrio(10);
+            Vendedor rand = new Vendedor(dni,nom,suel);
+            rand.setBonus(bonu);
+            return rand;
+        }
+
+        public override Comparable crearPorTeclado()
+        {
+            Console.Write("ingresa el nombre del vendedor:");
+            string n = Console.ReadLine();
+            Console.Write("ingresa el sueldo:");
+            int S = int.Parse(Console.ReadLine());
+            Console.Write("ingresa el DNI:");
+            int D = int.Parse(Console.ReadLine());
+
+            Vendedor vend = new Vendedor(D,n,S);
+            return vend;
         }
     }
 
