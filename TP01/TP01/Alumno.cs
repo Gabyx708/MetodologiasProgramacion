@@ -36,6 +36,7 @@ namespace TP01
             return "ALUMNO: " + this.getNombre() + " " + this.getDNI() + " leg: " + legajo + " pro: " + promedio;
         }
         //ejercicio 18
+        //metodos para comparar a un alumno
         public override bool sosIgual(Comparable c)
         {
             return estrategia.sosIgual(this, (Alumno)c);

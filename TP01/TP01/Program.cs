@@ -8,18 +8,18 @@ namespace TP01
         static void Main(string[] args)
         {
             Console.WriteLine("INTERFACEEEEES :D \n");
-        
+   
             Pila test = new Pila();
             Cola test2 = new Cola();
 
-            //EJERCICIO 7
-            llenar(test);
-            llenar(test2);
+            
+            llenar(test,0);
+            llenar(test2,0);
             Console.WriteLine("datos de la cola: ");
-            informar(test);
+            informar(test,0);
 
             Console.WriteLine("dato de la pila: ");
-            informar(test2);
+            informar(test2,0);
 
             ColeccionMultiple Multiple = new ColeccionMultiple(test,test2);
 
@@ -29,100 +29,77 @@ namespace TP01
             Console.WriteLine(Multiple.contiene(valor));
 
             //EJERCICIO 9
-            informar(Multiple);
+            informar(Multiple,0);
 
             //EJERCICIO 13
             Pila Pila = new Pila();
             Cola Cola = new Cola();
             Multiple = new ColeccionMultiple(Pila, Cola);
 
-            llenarPersonas(Pila);
-            llenarPersonas(Cola);
+            llenar(Pila,1);
+            llenar(Cola,1);
 
-            informar(Multiple);
+            informar(Multiple,1);
 
             //EJERCICIO 17
             Pila = new Pila();
             Cola = new Cola();
 
-            llenaAlumnos(Pila);
-            llenaAlumnos(Cola);
+            llenar(Pila,1);
+            llenar(Cola,1);
             Multiple = new ColeccionMultiple(Pila,Cola);
             
             informarA(Multiple);
 
 
-            //EJERCICIO 18 ALUMNO
-           /* Alumno A1 = new Alumno(45,"Mario",55,7);
-            Alumno A2 = new Alumno(55, "Julia", 55, 10); 
+           /* PRACTICA 2 -aun no funciona revisar
+            Alumno A1 = new Alumno(45,"Mario",55,7);
+            Alumno A2 = new Alumno(85, "Julia", 25, 10); /*
 
-            Console.WriteLine("promedio es mayor: "+A1.sosMayor(A2)); //false
-            Console.WriteLine("promedio es menor: " + A1.sosMenor(A2)); //true
-            Console.WriteLine("promedio es igual: " + A1.sosIgual(A2)); //false*/
+            Console.WriteLine("promedio es mayor: "+A1.sosMayor(A2)); 
+            Console.WriteLine("promedio es menor: " + A1.sosMenor(A2)); 
+            Console.WriteLine("promedio es igual: " + A1.sosIgual(A2)); 
 
             Conjunto miConjunto = new Conjunto();
-
+            miConjunto.agregar(A1);
+            miConjunto.agregar(A1);
+            Console.WriteLine("pertenece?: "+miConjunto.pertenece(A1));
+            
             Console.WriteLine("FIN...........");
+
+            Console.WriteLine("DICCIONARIO........");
+
+            Diccionario tester = new Diccionario();
+            tester.agregar(A1,A2);
+            tester.agregar(A1, A1);
+            tester.revisar(); */
+            
+            
 
 
         } //fin del main
 
 
-        //EJERCICIO 16 practica 1
-        public static void llenaAlumnos(Coleccionable c)
+    
+
+        public static void llenar(Coleccionable c,int opcion) // 0-numero 1-alumno
         {
-            for (int i = 0; i < 20; i++)
+            for (int i=0;i<20;i++)
             {
-                Random dni = new Random();
-                Random name = new Random();
-                Random leg = new Random();
-                Random prom = new Random();
-
-                string[] nombres = new string[6] { "Gaby", "Maria", "Luigi", "Daisy", "Pedro", "Lucia" };
-                int posi = name.Next(0, 5);
-
-                string nomR = nombres[posi];
-                int dniR = dni.Next(300, 500);
-                int legR = leg.Next(5000, 6000);
-                int promR = prom.Next(1, 10);
-                //ejercicio 2 practica 2
-                Alumno alumRandom = new Alumno(dniR, nomR, legR, promR);
-                EstrategiaDeComparacion e = new estrategiaProm();
-                alumRandom.setEstrategia(e);
-                c.agregar(alumRandom);
-            }
-
-        }
-
-        //EJERCICIO 12 practica 1
-        public static void llenarPersonas(Coleccionable laColec)
-        {
-            Random dni = new Random();
-            Random name = new Random();
-
-            int dniAzar = dni.Next(300, 500);
-            string[] nombres = new string[4] { "Gaby", "Maria", "Luigi", "Daisy" };
-            int posi = name.Next(0, 3);
-
-            string nomAzar = nombres[posi];
-
-            for (int i = 0; i < 20; i++)
-            {
-                Comparable unTipoRandom = new Persona(nomAzar, dniAzar);
-                laColec.agregar(unTipoRandom);
+                c.agregar(FabricaDeComparables.crearAleatorio(opcion));
             }
         }
 
         //ejercicio 6 practica 1
-        public static void informar(Coleccionable miCole)
+        public static void informar(Coleccionable miCole,int opcion)
         {
             Console.WriteLine("cant. elementos: " + miCole.cuantos());
             Console.WriteLine("elemento min: " + miCole.minimo());
             Console.WriteLine("elemento max: " + miCole.maximo());
 
             Console.WriteLine("buscar dato en esta coleccion: -->");
-            int ing = (int.Parse(Console.ReadLine()));
-            Comparable valor = new Numero(ing);
+           
+            Comparable valor = FabricaDeComparables.crearPorTeclado(opcion);
 
             if (miCole.contiene(valor))
             {
@@ -154,20 +131,7 @@ namespace TP01
             }
         }
 
-        //ejercicio 5 practica 1
-        public static void llenar(Coleccionable miCole)
-        {
-            Random numb = new Random();
-
-            for (int i = 0; i < 20; i++)
-            {
-                Comparable ele = new Numero(numb.Next(10, 50));
-                miCole.agregar(ele);
-            }
-
-        }
-
-
+   
 
     }
 

@@ -17,20 +17,31 @@ namespace TP01
         {
             return elementos;
         }
+        
         public void agregar(Comparable c)
         {
-            foreach (var comparable in elementos)
-            {
-                if (!c.sosIgual(comparable))
-                {
-                    elementos.Add(c);
-                }
-            }
+            if (!pertenece(c))     
+                elementos.Add(c);
+               
         }
 
         public bool pertenece(Comparable c)
         {
+            foreach (var ele in elementos)
+            {
+                if (ele.Equals(c))
+                {
+                    return true;
+                }
+            }
+
             return false;
+        }
+
+        public void muestrame()
+        {
+            foreach (var ele in elementos)
+                Console.WriteLine(ele.ToString());
         }
     }
 }

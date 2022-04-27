@@ -41,8 +41,17 @@ namespace TP01
         Comparable actual();
     }
 
+    //aun falta resolver practica 2
     interface Iterable
     {
         Iterador crearIterador();
+    }
+
+
+    //practica 3
+    interface IFabricaDeComparables
+    {
+        Comparable crearAleatorio();
+        Comparable crearPorTeclado();
     }
 }
