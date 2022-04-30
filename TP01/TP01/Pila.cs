@@ -14,6 +14,7 @@ namespace TP01
             
         }
 
+        public void queSoy() { Console.WriteLine("UNA PILA"); }
         public void push(Comparable c)
         {
             elementos.Add(c);

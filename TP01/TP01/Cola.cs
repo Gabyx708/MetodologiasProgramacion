@@ -13,6 +13,8 @@ namespace TP01
             elementos = new List<Comparable>();
         }
 
+        public void queSoy() { Console.WriteLine("UNA COLA"); }
+
         public void agregar(Comparable c)
         {
             elementos.Add(c);

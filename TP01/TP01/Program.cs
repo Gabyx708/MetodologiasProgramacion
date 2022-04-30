@@ -19,17 +19,17 @@ namespace TP01
             llenar(conjunto, 1);
             llenar(dic, 1);
 
-            imprimirElementos(pila,2);
-            imprimirElementos(cola, 1);
-            imprimirElementos(conjunto, 3);
-            imprimirElementos(dic, 4);
+            imprimirElementos(pila,pila.crearIterador());
+            imprimirElementos(cola, cola.crearIterador());
+            imprimirElementos(conjunto, conjunto.crearIterador());
+            imprimirElementos(dic, dic.crearIterador());
 
-            conjunto = new Conjunto();
-            llenar(conjunto, 1);
+            Cola colec = new Cola();
+            llenar(colec, 1);
             EstrategiaDeComparacion e = new estrategiaDni();
-            informar(conjunto,1);
-            cambiarEstrategia(conjunto,e);
-            informar(conjunto, 1);
+            informar(colec, 1);
+            cambiarEstrategia(colec, e, colec.crearIterador());
+            informar(colec, 1);
             
             /*Pila Pila = new Pila();
             Cola Cola = new Cola();
@@ -122,19 +122,10 @@ namespace TP01
         }
 
         //EJERCICIO 7 practica 2
-        public static void imprimirElementos(Coleccionable miColec,int opcion)
+        public static void imprimirElementos(Coleccionable miColec,Iterador IT)
         {
-            Iterador IT = null;
-
-            switch (opcion)
-            {
-                case 1: IT = new IteradorDeCola((Cola)miColec); break;
-                case 2: IT = new IteradorDePila((Pila)miColec); break;
-                case 3: IT = new IteradorDeConjunto((Conjunto)miColec); break;
-                case 4: IT = new IteradorDeDiccionario((Diccionario)miColec); break;
-            }
-
             Console.WriteLine("ELEMENTOS EN LA COLECCION //////////////////////////// \n");
+            miColec.queSoy();
 
             while (! IT.fin())
             {
@@ -145,20 +136,25 @@ namespace TP01
         }
 
         //revisar para crear una version generica
-        public static void cambiarEstrategia(Conjunto miColec, EstrategiaDeComparacion estrategia)
+        public static void cambiarEstrategia(Coleccionable miColec, EstrategiaDeComparacion estrategia,Iterador IT)
         {
-            foreach (var ele in miColec.getElemetos())
+        
+            while (!IT.fin())
             {
-                ((Alumno)ele).setEstrategia(estrategia);
+                ((Alumno)IT.actual()).setEstrategia(estrategia);
+                IT.siguiente();
             }
-                 
+                          
         }
 
         //EJERCICIO 13 practica 3
 
         public static void jornadaDeVenta(Coleccionable vendedores)
         {
+
+             
             
+                    
         }
 
   

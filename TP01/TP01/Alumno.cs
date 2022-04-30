@@ -91,7 +91,11 @@ namespace TP01
     {
         public bool sosIgual(Alumno alum, Alumno alum2)
         {
-            return alum.getNombre() == alum2.getNombre();
+            if(alum.getNombre().CompareTo(alum2.getNombre()) == 0)
+            {
+                return true;
+            }
+                return false;
         }
         public bool sosMenor(Alumno alum, Alumno alum2)
         {

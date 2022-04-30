@@ -5,7 +5,7 @@ using System.Text;
 namespace TP01
 {
 
-    //esta es la gran fabrica ,es capaz de fabricar cualquier cosa
+    //esta es la gran fabrica ,es capaz de fabricar cualquier comparable
      abstract class FabricaDeComparables : IFabricaDeComparables
     {
         public static Comparable crearAleatorio(int producto)
@@ -128,7 +128,6 @@ namespace TP01
             return vend;
         }
     }
-
-
+  
 
 }

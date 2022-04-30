@@ -13,6 +13,8 @@ namespace TP01
             elementos = new List<Comparable>();
         }
 
+        public void queSoy() { Console.WriteLine("UN CONJUNTO"); }
+
         public Iterador crearIterador()
         {
             return new IteradorDeConjunto(this);
@@ -38,15 +40,7 @@ namespace TP01
 
         public bool pertenece(Comparable c)
         {
-            foreach (var ele in elementos)
-            {
-                if (ele.Equals(c))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return this.contiene(c);
         }
 
         public void muestrame()

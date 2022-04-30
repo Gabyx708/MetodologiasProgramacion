@@ -16,6 +16,7 @@ namespace TP01
             miCola = C;
         }
 
+        public void queSoy() { Console.WriteLine("UNA COLECCION MULTIPLE"); }
         public Comparable elemento(int i)
         {
             return null;

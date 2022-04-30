@@ -22,6 +22,7 @@ namespace TP01
         Comparable maximo();
         void agregar(Comparable c);
         bool contiene(Comparable c);
+        void queSoy();
     }
 
     //paso 1: interface estrategias
@@ -61,6 +62,7 @@ namespace TP01
         Comparable crearAleatorio();
         Comparable crearPorTeclado();
     }
+
 
     interface IObservado
     {

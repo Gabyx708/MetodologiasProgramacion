@@ -13,6 +13,7 @@ namespace TP01
             almacen = new Conjunto();
         }
 
+        public void queSoy() { Console.WriteLine("UN DICCIONARIO"); }
         public Iterador crearIterador()
         {
             return new IteradorDeLista(almacen.getElemetos());
@@ -24,9 +25,10 @@ namespace TP01
 
             foreach (claveValor e in almacen.getElemetos())
             {
-                if (e.getClave().Equals(clave))
+                if (e.getClave().sosIgual(clave))
                 {
                     e.setValor(nuevoEle.getValor());
+                    break;
                 }
                 else
                 {
@@ -39,7 +41,9 @@ namespace TP01
 
         public void agregar(Comparable n)
         {
-            //sobrecarga del metodo para satisfacer a la interfaz
+            claveValor ficticia = new claveValor(null,null);
+
+            almacen.agregar(n);
         }
 
         public claveValor valorDe(Comparable key)
@@ -132,7 +136,7 @@ namespace TP01
        
         public bool sosIgual(Comparable c)
         {
-            return false;
+            return this.sosIgual(c);
         }
 
         public override string ToString()
@@ -141,12 +145,12 @@ namespace TP01
         }
         public bool sosMenor(Comparable c)
         {
-            return false;
+            return this.sosMenor(c);
         }
 
         public bool sosMayor(Comparable c)
         {
-            return false;
+            return this.sosMayor(c);
          }
     }
 
