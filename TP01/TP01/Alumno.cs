@@ -4,16 +4,18 @@ using System.Text;
 
 namespace TP01
 {
-    class Alumno : Persona
+    class Alumno : Persona , IAlumno
     {
         private int legajo;
         private int promedio;
+        private int calificacion;
         private EstrategiaDeComparacion estrategia;
         public Alumno(int Dni, string Nombre, int leg, int prom) : base(Nombre, Dni)
         {
             legajo = leg;
             promedio = prom;
             estrategia = new estrategiaLegajo();
+            calificacion = 0;
         }
 
         public void setEstrategia(EstrategiaDeComparacion e)
@@ -21,6 +23,21 @@ namespace TP01
             estrategia = e;
         }
 
+        public EstrategiaDeComparacion getEstrategia()
+        {
+            return estrategia;
+        }
+
+        public void setCalificacion(int c)
+        {
+            calificacion = c;
+        }
+
+        public int getCalificacion()  
+        {
+            return calificacion;
+        }
+           
         public int getLegajo()
         {
             return legajo;
@@ -32,6 +49,24 @@ namespace TP01
             return promedio;
         }
 
+        public virtual int responderPregunta(int pregunta)
+        {
+            GeneradorDeDatosAleatorios x = new GeneradorDeDatosAleatorios();
+            int n = x.numeroAleatorio(3);
+
+            if(n == 0)
+            {
+                n = 1;
+            }
+
+            return n;
+        }
+
+        public string mostrarCalificacion() //comportamiento base
+        {
+            return this.getNombre() +" "+ calificacion;
+        }
+
         public override string ToString()
         {
             return "ALUMNO: " + this.getNombre() + " " + this.getDNI() + " leg: " + legajo + " pro: " + promedio;
@@ -40,15 +75,15 @@ namespace TP01
         //metodos para comparar a un alumno
         public override bool sosIgual(Comparable c)
         {
-            return estrategia.sosIgual(this, (Alumno)c);
+            return estrategia.sosIgual(this, (IAlumno)c);
         }
         public override bool sosMenor(Comparable c)
         {
-            return estrategia.sosMenor(this, (Alumno)c);
+            return estrategia.sosMenor(this, (IAlumno)c);
         }
         public override bool sosMayor(Comparable c)
         {
-            return estrategia.sosMayor(this, (Alumno)c);
+            return estrategia.sosMayor(this, (IAlumno)c);
         }
       
     }
@@ -57,15 +92,15 @@ namespace TP01
     class estrategiaProm : EstrategiaDeComparacion
     {
         //paso 2: implementar subclases, cada subclasee es una estrategia
-        public  bool sosIgual(Alumno alum, Alumno alum2)
+        public  bool sosIgual(IAlumno alum, IAlumno alum2)
         {
             return alum.getPromedio() == alum2.getPromedio();
         }
-        public bool sosMenor(Alumno alum, Alumno alum2)
+        public bool sosMenor(IAlumno alum, IAlumno alum2)
         {
             return alum.getPromedio() < alum2.getPromedio();
         }
-        public bool sosMayor(Alumno alum, Alumno alum2)
+        public bool sosMayor(IAlumno alum, IAlumno alum2)
         {
             return alum.getPromedio() > alum2.getPromedio();
         }
@@ -73,15 +108,15 @@ namespace TP01
 
     class estrategiaLegajo : EstrategiaDeComparacion
     {
-        public bool sosIgual(Alumno alum, Alumno alum2)
+        public bool sosIgual(IAlumno alum, IAlumno alum2)
         {
             return alum.getLegajo() == alum2.getLegajo();
         }
-        public bool sosMenor(Alumno alum, Alumno alum2)
+        public bool sosMenor(IAlumno alum, IAlumno alum2)
         {
             return alum.getLegajo() < alum2.getLegajo();
         }
-        public bool sosMayor(Alumno alum, Alumno alum2)
+        public bool sosMayor(IAlumno alum, IAlumno alum2)
         {
             return alum.getLegajo() > alum2.getLegajo();
         }
@@ -89,7 +124,7 @@ namespace TP01
 
     class estrategiaNomb : EstrategiaDeComparacion
     {
-        public bool sosIgual(Alumno alum, Alumno alum2)
+        public bool sosIgual(IAlumno alum, IAlumno alum2)
         {
             if(alum.getNombre().CompareTo(alum2.getNombre()) == 0)
             {
@@ -97,11 +132,11 @@ namespace TP01
             }
                 return false;
         }
-        public bool sosMenor(Alumno alum, Alumno alum2)
+        public bool sosMenor(IAlumno alum, IAlumno alum2)
         {
             return alum.getNombre().Length < alum2.getNombre().Length;
         }
-        public bool sosMayor(Alumno alum, Alumno alum2)
+        public bool sosMayor(IAlumno alum, IAlumno alum2)
         {
             return alum.getNombre().Length > alum2.getNombre().Length;
         }
@@ -109,15 +144,15 @@ namespace TP01
 
     class estrategiaDni : EstrategiaDeComparacion
     {
-        public bool sosIgual(Alumno alum, Alumno alum2)
+        public bool sosIgual(IAlumno alum, IAlumno alum2)
         {
             return alum.getDNI() == alum2.getDNI();
         }
-        public bool sosMenor(Alumno alum, Alumno alum2)
+        public bool sosMenor(IAlumno alum, IAlumno alum2)
         {
             return alum.getDNI() < alum2.getDNI();
         }
-        public bool sosMayor(Alumno alum, Alumno alum2)
+        public bool sosMayor(IAlumno alum, IAlumno alum2)
         {
             return alum.getDNI() > alum2.getDNI();
         }

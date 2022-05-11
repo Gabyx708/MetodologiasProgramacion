@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MetodologíasDeProgramaciónI;
 
 namespace TP01
 {
@@ -8,84 +9,26 @@ namespace TP01
         static void Main(string[] args)
         {
             Console.WriteLine("INTERFACEEEEES :D \n");
+                   
+            //practica 3 ejercicio 14
+            Cola test = new Cola();
+            llenar(test,2);
+            Gerente gerent = new Gerente("Mario",45,01);
 
-            Pila pila = new Pila();
-            Cola cola = new Cola();
-            Conjunto conjunto = new Conjunto();
-            Diccionario dic = new Diccionario();
+            Iterador recorre = test.crearIterador();
 
-            llenar(pila,1);
-            llenar(cola, 1);
-            llenar(conjunto, 1);
-            llenar(dic, 1);
+            while (!recorre.fin())
+            {
+                ((Vendedor)recorre.actual()).agregarObservador(gerent);
+                recorre.siguiente();
+            }
 
-            imprimirElementos(pila,pila.crearIterador());
-            imprimirElementos(cola, cola.crearIterador());
-            imprimirElementos(conjunto, conjunto.crearIterador());
-            imprimirElementos(dic, dic.crearIterador());
+            jornadaDeVenta(test.crearIterador());
+           
 
-            Cola colec = new Cola();
-            llenar(colec, 1);
-            EstrategiaDeComparacion e = new estrategiaDni();
-            informar(colec, 1);
-            cambiarEstrategia(colec, e, colec.crearIterador());
-            informar(colec, 1);
-            
-            /*Pila Pila = new Pila();
-            Cola Cola = new Cola();
-            ColeccionMultiple Multiple = new ColeccionMultiple(Pila, Cola);
+            gerent.cerrar();
 
-            llenar(Pila,1);
-            llenar(Cola,1);
-
-          
-
-            
-            Pila = new Pila();
-            Cola = new Cola();
-
-            Vendedor v1 = new Vendedor(4, "Laura", 100);
-            Vendedor v2 = new Vendedor(5, "Mauro", 200);
-
-            Gerente g1 = new Gerente("Lucia", 5, 10);
-            Gerente g2 = new Gerente("Juan", 7, 18);
-
-            v1.agregarObservador(g1);
-            v1.agregarObservador(g2);
-
-            v2.agregarObservador(g1);
-
-            v1.quitarObservador(g1);
-            v1.quitarObservador(g2);
-
-            Cola = new Cola();
-            llenar(Cola, 2);
-            imprimirElementos(Cola,1);
-
-            PRACTICA 2 -aun no funciona revisar
-            Alumno A1 = new Alumno(45,"Mario",55,7);
-            Alumno A2 = new Alumno(85, "Julia", 25, 10); /*
-
-            Console.WriteLine("promedio es mayor: "+A1.sosMayor(A2)); 
-            Console.WriteLine("promedio es menor: " + A1.sosMenor(A2)); 
-            Console.WriteLine("promedio es igual: " + A1.sosIgual(A2)); 
-
-            Conjunto miConjunto = new Conjunto();
-            miConjunto.agregar(A1);
-            miConjunto.agregar(A1);
-            Console.WriteLine("pertenece?: "+miConjunto.pertenece(A1));
-            
-            Console.WriteLine("FIN...........");
-
-            Console.WriteLine("DICCIONARIO........");
-
-            Diccionario tester = new Diccionario();
-            tester.agregar(A1,A2);
-            tester.agregar(A1, A1);
-            tester.revisar(); */
-
-
-
+            ejercicio4();
 
         } //fin del main
 
@@ -136,7 +79,7 @@ namespace TP01
         }
 
         //revisar para crear una version generica
-        public static void cambiarEstrategia(Coleccionable miColec, EstrategiaDeComparacion estrategia,Iterador IT)
+        public static void cambiarEstrategia(EstrategiaDeComparacion estrategia,Iterador IT)
         {
         
             while (!IT.fin())
@@ -149,12 +92,53 @@ namespace TP01
 
         //EJERCICIO 13 practica 3
 
-        public static void jornadaDeVenta(Coleccionable vendedores)
+        public static void jornadaDeVenta(Iterador IT)
         {
+            GeneradorDeDatosAleatorios x = new GeneradorDeDatosAleatorios();
 
-             
-            
-                    
+            while (!IT.fin())
+            {
+                double monto = x.numeroAleatorio(7000);
+                ((Vendedor)IT.actual()).venta(monto);
+                IT.siguiente();
+            }
+                                     
+        }
+
+
+        //PRACTICA 4 ejercicio 4
+        public static void ejercicio4()
+        {
+            Teacher prof = new Teacher();
+
+            for (int i = 0; i < 10; i++)
+            {
+                IAlumno alumno = (Alumno)FabricaDeComparables.crearAleatorio(1);   
+                IAlumno decorador1 = new DecoradorLegajo(alumno);
+                IAlumno decorador2 = new DecoradorLetras(decorador1);
+                IAlumno decorador3 = new DecoradorPromocion(decorador2);
+                IAlumno decorador4 = new DecoradorCuadro(decorador3);
+                Student student = new AlumnoAdapter(decorador4); /*???*/
+              
+                prof.goToClass(student);
+
+               
+            }
+
+            for(int i=0; i < 10; i++)
+            {
+                IAlumno alumno = (AlumMuyEstud)FabricaDeComparables.crearAleatorio(3);
+                IAlumno decorador1 = new DecoradorLegajo(alumno);
+                IAlumno decorador2 = new DecoradorLetras(decorador1);
+                IAlumno decorador3 = new DecoradorPromocion(decorador2);
+                IAlumno decorador4 = new DecoradorCuadro(decorador3);
+                Student estudioso = new AlumnoAdapter(decorador4); /*???*/
+
+                prof.goToClass(estudioso);
+            }
+
+            prof.teachingAClass();
+
         }
 
   

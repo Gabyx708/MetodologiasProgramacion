@@ -14,9 +14,9 @@ namespace TP01
             mejores = new Conjunto();
         }
 
-        public void venta(int monto,Vendedor v)
+        public void venta(double monto,Vendedor v)
         {
-            if(monto < 5000)
+            if(monto > 5000)
             {
                 mejores.agregar(v);
                 v.aumentaBonus();
@@ -30,7 +30,7 @@ namespace TP01
 
         public void actualizar(IObservado o)
         {
-            this.venta(1000,(Vendedor)o);
+            this.venta(((Vendedor)o).getMonto(),(Vendedor)o);
         }
     }
 }

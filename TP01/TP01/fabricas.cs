@@ -17,7 +17,7 @@ namespace TP01
                 case 0: fabrica = new FabricaDeNumeros(); break;
                 case 1: fabrica = new FabricaDeAlumnos(); break;
                 case 2: fabrica = new FabricaDeVendedores(); break;
-
+                case 3: fabrica = new FabricaDeAlumEstudiosos(); break;
             }
 
             return  fabrica.crearAleatorio();
@@ -32,7 +32,7 @@ namespace TP01
                 case 0: fabrica = new FabricaDeNumeros(); break;
                 case 1: fabrica = new FabricaDeAlumnos(); break;
                 case 2: fabrica = new FabricaDeVendedores(); break;
-
+                case 3: fabrica = new FabricaDeAlumEstudiosos(); break;
             }
 
             return fabrica.crearPorTeclado();
@@ -97,6 +97,31 @@ namespace TP01
 
             Alumno nuev = new Alumno(D,n,L,p);
             return nuev;
+        }
+    }
+
+    class FabricaDeAlumEstudiosos : FabricaDeComparables
+    {
+        public override Comparable crearAleatorio()
+        {
+            GeneradorDeDatosAleatorios R = new GeneradorDeDatosAleatorios();
+
+            string[] nombres = new string[2] { "Manuel", "Brisa"};
+            int posi = R.numeroAleatorio(2);
+
+            string nomR = nombres[posi];
+            int dniR = R.numeroAleatorio(1000);
+            int legR = R.numeroAleatorio(500);
+            int promR = R.numeroAleatorio(10);
+
+            AlumMuyEstud AlumRand = new AlumMuyEstud(dniR, nomR, legR, promR);
+
+            return AlumRand;
+        }
+
+        public override Comparable crearPorTeclado()
+        {
+            return null;
         }
     }
 

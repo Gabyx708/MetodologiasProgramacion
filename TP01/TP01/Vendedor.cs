@@ -9,6 +9,7 @@ namespace TP01
         int sueldoBasico;
         double bonus;
         private EstrategiaDeComparacionVend estrategia;
+        private double ventas;
 
         public Vendedor(int Dni,string Nombre,int s):base(Nombre,Dni)
         {
@@ -20,8 +21,13 @@ namespace TP01
         public void venta(double monto)
         {
             Console.WriteLine("esta venta es de: "+monto);
-            this.notificar();
-   
+            ventas = monto;
+            this.notificar();   
+        }
+
+        public double getMonto()
+        {
+            return ventas;
         }
 
         public void aumentaBonus()
@@ -41,7 +47,7 @@ namespace TP01
 
         public override string ToString()
         {
-            return "Nombre Vendedor: " + this.getNombre() + " sueldo: " + sueldoBasico + "bonus: "+ this.getBonus();
+            return "Nombre Vendedor:  " + this.getNombre() + "  sueldo:  " + sueldoBasico + "  bonus:  "+ this.getBonus();
         }
 
         //metodos para comparar a un vendedor

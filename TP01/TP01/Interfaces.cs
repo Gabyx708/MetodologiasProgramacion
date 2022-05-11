@@ -28,9 +28,9 @@ namespace TP01
     //paso 1: interface estrategias
     interface EstrategiaDeComparacion
     {
-        bool sosIgual(Alumno a1, Alumno a2);
-        bool sosMenor(Alumno a1, Alumno a2);
-        bool sosMayor(Alumno a1, Alumno a2);
+        bool sosIgual(IAlumno a1, IAlumno a2);
+        bool sosMenor(IAlumno a1, IAlumno a2);
+        bool sosMayor(IAlumno a1, IAlumno a2);
     }
 
     interface EstrategiaDeComparacionVend
@@ -74,4 +74,5 @@ namespace TP01
     {
         void actualizar(IObservado o);
     }
+
 }
