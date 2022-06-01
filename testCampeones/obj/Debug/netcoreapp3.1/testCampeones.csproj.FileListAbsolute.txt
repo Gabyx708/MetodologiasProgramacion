@@ -1,0 +1,14 @@
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\bin\Debug\netcoreapp3.1\testCampeones.exe
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\bin\Debug\netcoreapp3.1\testCampeones.deps.json
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\bin\Debug\netcoreapp3.1\testCampeones.runtimeconfig.json
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\bin\Debug\netcoreapp3.1\testCampeones.runtimeconfig.dev.json
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\bin\Debug\netcoreapp3.1\testCampeones.dll
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\bin\Debug\netcoreapp3.1\testCampeones.pdb
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\obj\Debug\netcoreapp3.1\testCampeones.csproj.AssemblyReference.cache
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\obj\Debug\netcoreapp3.1\testCampeones.GeneratedMSBuildEditorConfig.editorconfig
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\obj\Debug\netcoreapp3.1\testCampeones.AssemblyInfoInputs.cache
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\obj\Debug\netcoreapp3.1\testCampeones.AssemblyInfo.cs
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\obj\Debug\netcoreapp3.1\testCampeones.csproj.CoreCompileInputs.cache
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\obj\Debug\netcoreapp3.1\testCampeones.dll
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\obj\Debug\netcoreapp3.1\testCampeones.pdb
+B:\1 cuatrimestre 2022\metodologias de la programacion\testCampeones\obj\Debug\netcoreapp3.1\testCampeones.genruntimeconfig.cache
